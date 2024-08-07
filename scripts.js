@@ -46,7 +46,7 @@ function displayPokemonData(dataArray) {
       : "";
 
     //adding card class to the created p element
-    const card = document.createElement("p"); //todo: I think div is a more appropriate element choice, since a card is typically a container
+    const card = document.createElement("p"); // todo: I think div is a more appropriate element choice, since a card is typically a container
     card.className = "card";
     card.innerHTML = `#${index + 1}<br>`;
     container.appendChild(card);
