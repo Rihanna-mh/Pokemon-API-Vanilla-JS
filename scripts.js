@@ -12,7 +12,7 @@ document.onreadystatechange = function () {
 
 async function getMultiplePokemonData() {
   const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
-  const numberOfPokemons = 30; // Number of Pokémon data you want to fetch
+  const numberOfPokemons = 100; // Number of Pokémon data you want to fetch
   const dataArray = [];
 
   for (let i = 1; i <= numberOfPokemons; i++) {
@@ -58,7 +58,7 @@ function displayPokemonData(dataArray) {
       : "";
 
     //adding card class to the created p element
-    const card = document.createElement("p");
+    const card = document.createElement("p"); // todo: I think div is a more appropriate element choice, since a card is typically a container
     card.className = "card";
     card.innerHTML = `#${index + 1}<br>`;
     container.appendChild(card);
@@ -71,6 +71,7 @@ function displayPokemonData(dataArray) {
     image.alt = `${name} photo`;
     image.width = 120;
     card.appendChild(image);
+
 
     // Add Pokémon name
     const nameElement = document.createElement("h2");
@@ -97,6 +98,11 @@ function displayPokemonData(dataArray) {
     const typeElement = document.createElement("div");
     typeElement.innerHTML = `Type: <b>${type1}${type2}</b>`;
     card.appendChild(typeElement);
+
+    const pokemonIdSpan = document.createElement("span");
+    pokemonIdSpan.innerHTML = `<h2>${name}</h2> Weight &nbsp;&nbsp;&nbsp; Height <br> <b>${weight}kg</b> <b>${height}m</b> <br> <br> Type: <b>${type1}${type2}</b>`; //todo: the spacing here likely could have been achieved with css - adding in &nbsp; isn't ideal
+    card.appendChild(pokemonIdSpan);
+
   });
 }
 
